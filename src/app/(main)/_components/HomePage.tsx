@@ -5,6 +5,7 @@ import Well from "@/app/(main)/_components/Well";
 import {useState} from "react";
 import Box from "@mui/material/Box";
 import SpinAction from "@/app/(main)/_components/SpinAction";
+import Image from "next/image";
 
 export default function HomePage() {
     const theme = useTheme();
@@ -32,18 +33,29 @@ export default function HomePage() {
             setMustSpin(false)
         }, 800)
     }
-    return <Grid container={true} spacing={{md: 5, xs: 12}} alignItems={{
+    return <Grid container={true} spacing={{xs: 2, sm: 3, md: 10,}} alignItems={{
         lg: 'center'
     }} sx={{minHeight: '100vh', py: 5}}>
         <Grid item xs={12} sm={12} md={12} lg={6}>
-            <Stack spacing={8} textAlign={{xs: 'center', md: 'left'}}>
-                <Typography variant={'h2'} sx={{pb: {xs: 0, md: 0, lg: 12}}}>
-                    جشنواره تابستانه دنتیلایت
+            <Stack spacing={{xs: 1, sm: 2, md: 0}} sx={{
+                display: 'flex',
+                alignItems: {xs: 'center', md: 'start'}
+            }} textAlign={{xs: 'center', md: 'left'}}>
+                <Typography variant={'h2'}>
+                    جشنواره تابستانه
                 </Typography>
-                <Typography variant={'h3'}>
+                <Box sx={{
+                    position: 'relative',
+                    width: '224px',
+                    height: '84px',
+
+                }}>
+                    < Image src={'/dentilite_text_logo_2.png'} alt={'dentilite'} fill style={{objectFit: 'contain'}}/>
+                </Box>
+                <Typography variant={'h3'} sx={{pt: {xs: 2, md: 4, lg: 12}}}>
                     گردونه رو بچرخون و شانست رو امتحان کن !
                 </Typography>
-                <Typography variant={'h4'}>
+                <Typography variant={'h5'} sx={{py: {xs: 1, sm: 3}}}>
                     با چرخوندن گردونه روبه رو، هم میتونی هدیه بگیری وهم از تخفیف های خرید محصولات بهره‌مند بشی
                 </Typography>
                 {
@@ -53,25 +65,25 @@ export default function HomePage() {
             </Stack>
         </Grid>
 
-        <Grid item xs={12} sm={12} md={12} lg={6} display={'flex'} alignItems={'center'} justifyContent={'center'}>
-            <Stack spacing={10}>
+        <Grid item xs={12} sm={12} md={12} lg={6} display={'flex'} alignItems={'start'} justifyContent={'center'}>
+            <Stack spacing={{xs: 10, sm: 11, md:11}}>
                 <Box
-                    display={'flex'} alignItems={'center'} justifyContent={'center'}
+                    display={'flex'} alignItems={'start'} justifyContent={'center'}
                     sx={
                         {
                             transition: 'all 0.2s ease',
                             minHeight: {
                                 lg: '500px',
-                                md: '600px',
-                                sm: '400px',
-                                xs: '200px'
+                                md: '350px',
+                                sm: '450px',
+                                xs: '410px'
                             },
                             // width: '755px',
                             scale: {
                                 lg: '1.5',
                                 md: '1.3',
-                                sm: '1.1',
-                                xs: '1'
+                                sm: '1.25',
+                                xs: '1.2'
                             }
                         }
                     }>

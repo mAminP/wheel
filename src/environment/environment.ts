@@ -9,8 +9,8 @@ export const webEnv: IWebEnv = {
     recaptcha: {
         google: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string,
     },
-    siteName: 'ناکسینو',
-    siteNameEn: "Nuxino"
+    siteName: 'دنتیلایت',
+    siteNameEn: "Dentilite"
 };
 
 export interface IWebEnv {
