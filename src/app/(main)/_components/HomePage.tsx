@@ -33,7 +33,7 @@ export default function HomePage() {
             setMustSpin(false)
         }, 800)
     }
-    return <Grid container={true} spacing={{xs: 2, sm: 3, md: 10,}} alignItems={{
+    return <Grid container={true} spacing={{xs: 6, sm: 7, md: 10,}} alignItems={{
         lg: 'center'
     }} sx={{minHeight: '100vh', py: 5}}>
         <Grid item xs={12} sm={12} md={12} lg={6}>
@@ -41,7 +41,7 @@ export default function HomePage() {
                 display: 'flex',
                 alignItems: {xs: 'center', md: 'start'}
             }} textAlign={{xs: 'center', md: 'left'}}>
-                <Typography variant={'h2'}>
+                <Typography variant={'h1'}>
                     جشنواره تابستانه
                 </Typography>
                 <Box sx={{
@@ -52,7 +52,7 @@ export default function HomePage() {
                 }}>
                     < Image src={'/dentilite_text_logo_2.png'} alt={'dentilite'} fill style={{objectFit: 'contain'}}/>
                 </Box>
-                <Typography variant={'h3'} sx={{pt: {xs: 2, md: 4, lg: 12}}}>
+                <Typography variant={'h2'} sx={{pt: {xs: 2, md: 4, lg: 12}}}>
                     گردونه رو بچرخون و شانست رو امتحان کن !
                 </Typography>
                 <Typography variant={'h5'} sx={{py: {xs: 1, sm: 3}}}>
@@ -66,7 +66,7 @@ export default function HomePage() {
         </Grid>
 
         <Grid item xs={12} sm={12} md={12} lg={6} display={'flex'} alignItems={'start'} justifyContent={'center'}>
-            <Stack spacing={{xs: 10, sm: 11, md:11}}>
+            <Stack spacing={{xs: 3, sm: 7, md:11}}>
                 <Box
                     display={'flex'} alignItems={'start'} justifyContent={'center'}
                     sx={
@@ -75,8 +75,8 @@ export default function HomePage() {
                             minHeight: {
                                 lg: '500px',
                                 md: '350px',
-                                sm: '450px',
-                                xs: '410px'
+                                sm: '480px',
+                                xs: '360px'
                             },
                             // width: '755px',
                             scale: {
