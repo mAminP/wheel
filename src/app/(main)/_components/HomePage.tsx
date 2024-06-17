@@ -31,7 +31,7 @@ export default function HomePage() {
     const handleSpinStop = () => {
         setTimeout(() => {
             setMustSpin(false)
-        }, 800)
+        }, 200)
     }
     return <Grid container={true} spacing={{xs: 6, sm: 7, md: 10,}} alignItems={{
         lg: 'center'
@@ -56,7 +56,7 @@ export default function HomePage() {
                     گردونه رو بچرخون و شانست رو امتحان کن !
                 </Typography>
                 <Typography variant={'h5'} sx={{py: {xs: 1, sm: 3}}}>
-                    با چرخوندن گردونه روبه رو، هم میتونی هدیه بگیری وهم از تخفیف های خرید محصولات بهره‌مند بشی
+                    با چرخوندن گردونه، هم میتونی هدیه بگیری وهم از تخفیف های خرید محصولات بهره‌مند بشی
                 </Typography>
                 {
                     lgAndUp && <SpinAction onSubmit={handleSpinClick}/>
