@@ -14,8 +14,8 @@ type Props = {
 
 function Well({mustSpin, prizeNumber, onStop}: Props) {
 
-    const sizeMultiplier = 0.4
-    const offsetX = -70
+    const sizeMultiplier = 0.55
+    const offsetX = -55
     const shadow = 15
     const data = [
         {
