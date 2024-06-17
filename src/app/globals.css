@@ -1,0 +1,71 @@
+@import url(../assets/fonts.css);
+
+main {
+    min-height: 100vh;
+    /*background: url("/background.jpg") no-repeat center;*/
+    background: linear-gradient(to bottom right, #006cfd, #03439a);
+    overflow-x: hidden;
+}
+
+.light {
+    background: gray;
+    border-radius: 1000px;
+    width: 7px;
+    height: 7px;
+}
+
+.light1 {
+    background: gold;
+    border-radius: 1000px;
+    width: 7px;
+    height: 7px;
+    animation: lightAnime infinite 0.4s;
+}
+
+.light2 {
+    background: #ff5900;
+    border-radius: 1000px;
+    width: 7px;
+    height: 7px;
+    animation: lightAnime2 infinite 0.5s;
+}
+
+
+@keyframes lightAnime {
+    0% {
+        box-shadow: 0 0 20px gold, 0 0 15px gold;
+    }
+    50% {
+        background: #ff5900;
+        box-shadow: 0 0 10px #ff5900, 0 0 20px #ff5900;
+    }
+    100% {
+        box-shadow: 0 0 20px gold, 0 0 15px gold;
+    }
+}
+
+@keyframes lightAnime2 {
+    0% {
+        box-shadow: 0 0 20px #ff5900, 0 0 15px #ff5900;
+    }
+    50% {
+        background: gold;
+        box-shadow: 0 0 10px gold, 0 0 20px gold;
+    }
+    100% {
+        box-shadow: 0 0 20px #ff5900, 0 0 15px #ff5900;
+    }
+}
+
+.ring {
+    border-radius: 1000px;
+    user-select: none;
+}
+
+.bhdLno {
+    z-index: 1 !important;
+}
+
+.bhdLno img {
+    z-index: 3 !important;
+}
