@@ -1,11 +1,10 @@
 "use client";
 import { createTheme, responsiveFontSizes } from "@mui/material";
 import { faIR } from "@mui/material/locale";
-import { blueGrey } from "@mui/material/colors";
+import { blueGrey, green, grey } from "@mui/material/colors";
 
 export let theme = createTheme(
   {
-
     direction: "rtl",
     typography: {
       fontFamily: ["iranSans", "KALAMEH"].join(","),
@@ -82,7 +81,6 @@ export let theme = createTheme(
       },
     },
     palette: {
-      mode:'dark',
       primary: {
         main: "#0089ff",
       },
@@ -93,14 +91,16 @@ export let theme = createTheme(
         main: "#ffc107",
       },
       success: {
-        main: "#50d166",
+        main: "#088b3d",
         contrastText: "#fff",
+        "100": "#76f6a9",
+        "200": "#b1fdcf",
       },
       secondary: {
         main: "#FFA726",
       },
       text: {
-        primary: '#fff',
+        primary: grey[800],
       },
       background: {
         default: "#fafafa",
