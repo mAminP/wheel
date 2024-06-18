@@ -25,6 +25,11 @@ import { yup } from "@/lib/yup";
 import Box from "@mui/material/Box";
 import { useTimer } from "react-timer-hook";
 import { useEffect, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { $axios } from "@/Providers/axios";
+import { LoadingButton } from "@mui/lab";
+import { getCookies, setCookie, deleteCookie, getCookie } from "cookies-next";
+
 type Props = {
   phoneNumber: string;
   onSubmit?: ({ winner }: { winner: number }) => void;
@@ -37,10 +42,39 @@ export default function SpinOTPCode(props: Props) {
     autoStart: false,
     onExpire: () => console.warn("onExpire called"),
   });
+
+  const { isPending, mutateAsync } = useMutation({
+    mutationKey: ["checkOtpCode"],
+    mutationFn: ({
+      mobileNumber,
+      otpCode,
+    }: {
+      mobileNumber: string;
+      otpCode: number;
+    }) => {
+      return $axios.post("/api/login/otp_login", {
+        mobileNumber: mobileNumber,
+        otpCode,
+      });
+    },
+    onError(e) {
+      console.log(e);
+    },
+    onSuccess({ data }, values) {
+      const token = data.data.token;
+      setCookie("Authorization", token);
+      // props.onSubmit && props.onSubmit(values.mobileNumber);
+      //   const newPrizeNumber = Math.floor(Math.random() * 10);
+      //   props.onSubmit && props.onSubmit({ winner: newPrizeNumber });
+      //   setOk(true);
+    },
+  });
+
   function addMinutes(date: Date, minutes: number) {
     date.setMinutes(date.getMinutes() + minutes);
     return date;
   }
+
   useEffect(() => {
     const da = new Date();
     const de = addMinutes(da, 2);
@@ -59,10 +93,8 @@ export default function SpinOTPCode(props: Props) {
       phoneNumber: yup.string().phoneNumber().required().label("شماره همراه"),
       otp: yup.string().number().required().label("کد تایید"),
     });
-  const handleSubmit = () => {
-    const newPrizeNumber = Math.floor(Math.random() * 10);
-    props.onSubmit && props.onSubmit({ winner: newPrizeNumber });
-    setOk(true);
+  const handleSubmit = (values: typeof initData) => {
+    mutateAsync({ mobileNumber: values.phoneNumber, otpCode: +values.otp });
   };
   const handleBack = () => {
     props.onBack && props.onBack();
@@ -129,7 +161,6 @@ export default function SpinOTPCode(props: Props) {
                   return (
                     <Box sx={{ display: "flex", flexDirection: "column" }}>
                       <Paper
-                        component="form"
                         variant={"elevation"}
                         elevation={0}
                         sx={{
@@ -181,7 +212,8 @@ export default function SpinOTPCode(props: Props) {
                           sx={{ mx: 1, flex: 1 }}
                           placeholder="کد تایید را وارد کنید..."
                         />
-                        <Button
+                        <LoadingButton
+                          loading={isPending}
                           variant={"contained"}
                           disableElevation={true}
                           color="primary"
@@ -191,7 +223,7 @@ export default function SpinOTPCode(props: Props) {
                         >
                           <Typography>تایید و ادامه</Typography>
                           {mdAndUp && <KeyboardArrowLeft sx={{ ml: 1 }} />}
-                        </Button>
+                        </LoadingButton>
                       </Paper>
                       <FormHelperText sx={{ color: "white" }}>
                         {error ? meta.error : " "}

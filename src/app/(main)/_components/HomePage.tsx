@@ -1,36 +1,26 @@
 "use client";
 
 import {
-  Button,
-  Card,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   Grid,
-  IconButton,
   Stack,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 import Well from "@/app/(main)/_components/Well";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Box from "@mui/material/Box";
 import SpinAction from "@/app/(main)/_components/SpinAction";
 import Image from "next/image";
-import { Close, ContentCopy } from "@mui/icons-material";
+
 // @ts-ignore
 import { CopyToClipboard } from "react-copy-to-clipboard";
+
 export default function HomePage() {
-  const [winnerDialog, setWinnerDialog] = useState<boolean>(false);
   const theme = useTheme();
   const lgAndUp = useMediaQuery(theme.breakpoints.up("lg"));
   const [mustSpin, setMustSpin] = useState(false);
-  const [copied, setCopied] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
-  const code = "aV2vW";
   const handleSpinClick = ({ winner }: { winner: number }) => {
     if (!mustSpin) {
       setPrizeNumber(winner);
@@ -40,89 +30,19 @@ export default function HomePage() {
   const handleSpinStop = () => {
     setTimeout(() => {
       setMustSpin(false);
-      setWinnerDialog(true);
     }, 500);
   };
-  const handleClose = () => {
-    setWinnerDialog(false);
-  };
+  const action = useMemo(() => {
+    return (
+      <SpinAction
+        onSubmit={({ winner }) => {
+          handleSpinClick({ winner });
+        }}
+      />
+    );
+  }, []);
   return (
     <>
-      <Dialog
-        fullWidth={true}
-        maxWidth={"xs"}
-        open={winnerDialog}
-        onClose={handleClose}
-      >
-        <Grid container={true} spacing={2}>
-          <Grid
-            item={true}
-            xs={12}
-            display={"flex"}
-            alignItems={"center"}
-            justifyContent={"end"}
-          >
-            <IconButton color={"primary"} onClick={handleClose}>
-              <Close />
-            </IconButton>
-          </Grid>
-          <Grid
-            item={true}
-            xs={12}
-            display={"flex"}
-            alignItems={"center"}
-            justifyContent={"center"}
-          >
-            <Typography variant={"h3"}>تبریک</Typography>
-          </Grid>
-          <Grid item={true} xs={12} display={"flex"} sx={{ mx: 3 }}>
-            <Typography variant={"body1"}>شما برنده این شدید....</Typography>
-          </Grid>
-        </Grid>
-        <DialogContent>
-          <CopyToClipboard text={code} onCopy={() => setCopied(true)}>
-            <Card
-              sx={{ p: 1, borderRadius: 2000, backgroundColor: "success.200" }}
-              elevation={0}
-            >
-              <Stack
-                direction={"row"}
-                alignItems={"center"}
-                justifyContent={"space-between"}
-              >
-                <Typography
-                  fontWeight={"100"}
-                  fontSize={"larger"}
-                  textAlign={"center"}
-                  variant={"body2"}
-                  width={"100%"}
-                >
-                  {code}
-                </Typography>
-
-                {copied ? (
-                  <Typography width={"60px"} variant={"body2"} noWrap={true}>
-                    کپی شد
-                  </Typography>
-                ) : (
-                  <Button
-                    startIcon={<ContentCopy />}
-                    color={"success"}
-                    sx={{
-                      borderRadius: 2000,
-                      px: 2,
-                      backgroundColor: "success.100",
-                    }}
-                    style={{ whiteSpace: "nowrap" }}
-                  >
-                    کپی کد
-                  </Button>
-                )}
-              </Stack>
-            </Card>
-          </CopyToClipboard>
-        </DialogContent>
-      </Dialog>
       <Grid
         container={true}
         spacing={{ xs: 6, sm: 7, md: 10 }}
@@ -172,7 +92,7 @@ export default function HomePage() {
               با چرخوندن گردونه، هم میتونی هدیه بگیری وهم از تخفیف های خرید
               محصولات بهره‌مند بشی
             </Typography>
-            {lgAndUp && <SpinAction onSubmit={handleSpinClick} />}
+            {lgAndUp && action}
           </Stack>
         </Grid>
 
@@ -219,13 +139,7 @@ export default function HomePage() {
                 onStop={handleSpinStop}
               />
             </Box>
-            {!lgAndUp && (
-              <SpinAction
-                onSubmit={({ winner }) => {
-                  handleSpinClick({ winner });
-                }}
-              />
-            )}
+            {!lgAndUp && action}
           </Stack>
         </Grid>
       </Grid>
