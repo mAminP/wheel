@@ -1,31 +1,31 @@
 @font-face {
     font-family: Alibaba;
-    src: url("fonts/Alibaba/woff2/Alibaba-Regular.woff2") format("woff2"),
-    url("fonts/Alibaba/woff/Alibaba-Regular.woff") format("woff"),
-    url("fonts/Alibaba/tff/Alibaba-Regular.ttf") format("truetype"),
-    url("fonts/Alibaba/eot/Alibaba-Regular.eot") format("eot");
+    src: url("fonts/Woff2/Alibaba-Regular.woff2") format("woff2"),
+    url("fonts/Woff/Alibaba-Regular.woff") format("woff"),
+    url("fonts/tff/Alibaba-Regular.ttf") format("truetype"),
+    url("fonts/eot/Alibaba-Regular.eot") format("eot");
 }
 
 @font-face {
     font-family: Alibaba_Bold;
-    src: url("fonts/Alibaba/woff2/Alibaba-Bold.woff2") format("woff2"),
-    url("fonts/Alibaba/woff/Alibaba-Bold.woff") format("woff"),
-    url("fonts/Alibaba/tff/Alibaba-Bold.ttf") format("truetype"),
-    url("fonts/Alibaba/eot/Alibaba-Bold.eot") format("eot");
+    src: url("fonts/Woff2/Alibaba-Bold.woff2") format("woff2"),
+    url("fonts/Woff/Alibaba-Bold.woff") format("woff"),
+    url("fonts/tff/Alibaba-Bold.ttf") format("truetype"),
+    url("fonts/eot/Alibaba-Bold.eot") format("eot");
 }
 
 @font-face {
     font-family: Alibaba_Light;
-    src: url("fonts/Alibaba/woff2/Alibaba-Light.woff2") format("woff2"),
-    url("fonts/Alibaba/woff/Alibaba-Light.woff") format("woff"),
-    url("fonts/Alibaba/tff/Alibaba-Light.ttf") format("truetype"),
-    url("fonts/Alibaba/eot/Alibaba-Light.eot") format("eot");
+    src: url("fonts/Woff2/Alibaba-Light.woff2") format("woff2"),
+    url("fonts/Woff/Alibaba-Light.woff") format("woff"),
+    url("fonts/tff/Alibaba-Light.ttf") format("truetype"),
+    url("fonts/eot/Alibaba-Light.eot") format("eot");
 }
 
 @font-face {
     font-family: Alibaba_Black;
-    src: url("fonts/Alibaba/woff2/Alibaba-Black.woff2") format("woff2"),
-    url("fonts/Alibaba/woff/Alibaba-Black.woff") format("woff"),
-    url("fonts/Alibaba/tff/Alibaba-Black.ttf") format("truetype"),
-    url("fonts/Alibaba/eot/Alibaba-Black.eot") format("eot");
+    src: url("fonts/Woff2/Alibaba-Black.woff2") format("woff2"),
+    url("fonts/Woff/Alibaba-Black.woff") format("woff"),
+    url("fonts/tff/Alibaba-Black.ttf") format("truetype"),
+    url("fonts/eot/Alibaba-Black.eot") format("eot");
 }
