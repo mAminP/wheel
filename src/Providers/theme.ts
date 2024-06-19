@@ -7,76 +7,76 @@ export let theme = createTheme(
   {
     direction: "rtl",
     typography: {
-      fontFamily: ["iranSans", "KALAMEH"].join(","),
+      fontFamily: ["Alibaba"].join(","),
       h1: {
         fontSize: "3rem",
-        fontFamily: ["iranSans_Bold", "KALAMEH"].join(","),
+        fontFamily: ["Alibaba_Bold"].join(","),
 
         fontWeight: 600,
       },
       h2: {
         fontSize: "2rem",
-        fontFamily: ["iranSans_Bold", "KALAMEH"].join(","),
+        fontFamily: ["Alibaba_Bold"].join(","),
 
         fontWeight: 600,
       },
       h3: {
         fontSize: "1.5rem",
-        fontFamily: ["iranSans_Bold", "KALAMEH"].join(","),
+        fontFamily: ["Alibaba_Bold"].join(","),
 
         fontWeight: 600,
       },
       h4: {
         fontSize: "1.125rem",
-        fontFamily: ["iranSans_Bold", "KALAMEH"].join(","),
+        fontFamily: ["Alibaba_Bold"].join(","),
 
         fontWeight: 600,
       },
       h5: {
         fontSize: "1rem",
-        fontFamily: ["iranSans_Bold", "KALAMEH"].join(","),
+        fontFamily: ["Alibaba_Bold"].join(","),
 
         fontWeight: 600,
       },
       h6: {
         fontSize: "0.875rem",
-        fontFamily: ["iranSans_Bold", "KALAMEH"].join(","),
+        fontFamily: ["Alibaba_Bold"].join(","),
 
         fontWeight: 600,
       },
       subtitle1: {
         fontSize: "1rem",
-        fontFamily: ["iranSans_Bold", "KALAMEH"].join(","),
+        fontFamily: ["Alibaba_Bold"].join(","),
 
         fontWeight: 500,
       },
       subtitle2: {
         fontSize: "0.875rem",
-        fontFamily: ["iranSans_Bold", "KALAMEH"].join(","),
+        fontFamily: ["Alibaba_Bold"].join(","),
 
         fontWeight: 500,
       },
       body1: {
         fontSize: "1rem",
-        fontFamily: ["iranSans_Medium", "KALAMEH"].join(","),
+        fontFamily: ["Alibaba"].join(","),
 
         fontWeight: 400,
       },
       body2: {
         fontSize: "0.875rem",
-        fontFamily: ["iranSans", "KALAMEH"].join(","),
+        fontFamily: ["Alibaba"].join(","),
       },
       button: {
         fontSize: "0.875rem",
-        fontFamily: ["iranSans", "KALAMEH"].join(","),
+        fontFamily: ["Alibaba"].join(","),
       },
       caption: {
         fontSize: "0.75rem",
-        fontFamily: ["iranSans_Light", "KALAMEH"].join(","),
+        fontFamily: ["Alibaba_Light"].join(","),
       },
       overline: {
         fontSize: "0.75rem",
-        fontFamily: ["iranSans_UltraLight", "KALAMEH"].join(","),
+        fontFamily: ["Alibaba_Light"].join(","),
         lineHeight: "1.4rem",
       },
     },

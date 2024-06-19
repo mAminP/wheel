@@ -1,106 +1,31 @@
 @font-face {
-  font-family: KALAMEH;
-  src:
-    url("./fonts/KALAMEH-REGULAR.woff2") format("woff2"),
-    url("./fonts/KALAMEH-REGULAR.woff") format("woff"),
-    url("./fonts/KALAMEH-REGULAR.ttf") format("truetype");
-}
-
-.ff-kalameh {
-  font-family: KALAMEH, serif;
+    font-family: Alibaba;
+    src: url("./fonts/Alibaba/woff2/Alibaba-Regular.woff2") format("woff2"),
+    url("./fonts/Alibaba/woff/Alibaba-Regular.woff") format("woff"),
+    url("./fonts/Alibaba/tff/Alibaba-Regular.ttf") format("truetype"),
+    url("./fonts/Alibaba/eot/Alibaba-Regular.eot") format("eot");
 }
 
 @font-face {
-  font-family: KALAMEH-BOLD;
-  src:
-    url("./fonts/KALAMEH-BOLD.woff2") format("woff2"),
-    url("./fonts/KALAMEH-BOLD.woff") format("woff"),
-    url("./fonts/KALAMEH-BOLD.ttf") format("truetype");
-}
-
-.ff-kalameh-bold {
-  font-family: KALAMEH-BOLD, serif;
+    font-family: Alibaba_Bold;
+    src: url("./fonts/Alibaba/woff2/Alibaba-Bold.woff2") format("woff2"),
+    url("./fonts/Alibaba/woff/Alibaba-Bold.woff") format("woff"),
+    url("./fonts/Alibaba/tff/Alibaba-Bold.ttf") format("truetype"),
+    url("./fonts/Alibaba/eot/Alibaba-Bold.eot") format("eot");
 }
 
 @font-face {
-  font-family: B-NAZANIN;
-  src:
-    url("./fonts/BNazanin.eot") format("eot"),
-    url("./fonts/BNazanin.woff") format("woff"),
-    url("./fonts/BNazanin.woff") format("woff"),
-    url("./fonts/BNazanin.ttf") format("truetype");
-  font-weight: lighter;
-}
-
-.ff-b-nazanin {
-  font-family: B-NAZANIN;
+    font-family: Alibaba_Light;
+    src: url("./fonts/Alibaba/woff2/Alibaba-Light.woff2") format("woff2"),
+    url("./fonts/Alibaba/woff/Alibaba-Light.woff") format("woff"),
+    url("./fonts/Alibaba/tff/Alibaba-Light.ttf") format("truetype"),
+    url("./fonts/Alibaba/eot/Alibaba-Light.eot") format("eot");
 }
 
 @font-face {
-  font-family: B-NAZANIN-BOLD;
-  src:
-    url("./fonts/bnazanb.eot") format("eot"),
-    url("./fonts/bnazanb.woff") format("woff"),
-    url("./fonts/bnazanb.ttf") format("truetype");
-  font-weight: normal;
-}
-
-.ff-b-nazanin-bold {
-  font-family: B-NAZANIN-BOLD;
-}
-
-/* iranSansWeb */
-
-@font-face {
-  font-family: iranSans;
-  src:
-    url("./fonts/iransans/woff2/IRANSansWeb.woff2") format("woff2"),
-    url("./fonts/iransans/woff/IRANSansWeb.woff") format("woff"),
-    url("./fonts/iransans/ttf/IRANSansWeb.ttf") format("truetype"),
-    url("./fonts/iransans/eot/IRANSansWeb.eot") format("eot");
-}
-
-@font-face {
-  font-family: iranSans_Black;
-  src:
-    url("./fonts/iransans/woff2/IRANSansWeb_Black.woff2") format("woff2"),
-    url("./fonts/iransans/woff/IRANSansWeb_Black.woff") format("woff"),
-    url("./fonts/iransans/ttf/IRANSansWeb_Black.ttf") format("truetype"),
-    url("./fonts/iransans/eot/IRANSansWeb_Black.eot") format("eot");
-}
-
-@font-face {
-  font-family: iranSans_Bold;
-  src:
-    url("./fonts/iransans/woff2/IRANSansWeb_Bold.woff2") format("woff2"),
-    url("./fonts/iransans/woff/IRANSansWeb_Bold.woff") format("woff"),
-    url("./fonts/iransans/ttf/IRANSansWeb_Bold.ttf") format("truetype"),
-    url("./fonts/iransans/eot/IRANSansWeb_Bold.eot") format("eot");
-}
-
-@font-face {
-  font-family: iranSans_Light;
-  src:
-    url("./fonts/iransans/woff2/IRANSansWeb_Light.woff2") format("woff2"),
-    url("./fonts/iransans/woff/IRANSansWeb_Light.woff") format("woff"),
-    url("./fonts/iransans/ttf/IRANSansWeb_Light.ttf") format("truetype"),
-    url("./fonts/iransans/eot/IRANSansWeb_Light.eot") format("eot");
-}
-
-@font-face {
-  font-family: iranSans_Medium;
-  src:
-    url("./fonts/iransans/woff2/IRANSansWeb_Medium.woff2") format("woff2"),
-    url("./fonts/iransans/woff/IRANSansWeb_Medium.woff") format("woff"),
-    url("./fonts/iransans/ttf/IRANSansWeb_Medium.ttf") format("truetype"),
-    url("./fonts/iransans/eot/IRANSansWeb_Medium.eot") format("eot");
-}
-
-@font-face {
-  font-family: iranSans_UltraLight;
-  src:
-    url("./fonts/iransans/woff2/IRANSansWeb_UltraLight.woff2") format("woff2"),
-    url("./fonts/iransans/woff/IRANSansWeb_UltraLight.woff") format("woff"),
-    url("./fonts/iransans/ttf/IRANSansWeb_UltraLight.ttf") format("truetype"),
-    url("./fonts/iransans/eot/IRANSansWeb_UltraLight.eot") format("eot");
+    font-family: Alibaba_Black;
+    src: url("./fonts/Alibaba/woff2/Alibaba-Black.woff2") format("woff2"),
+    url("./fonts/Alibaba/woff/Alibaba-Black.woff") format("woff"),
+    url("./fonts/Alibaba/tff/Alibaba-Black.ttf") format("truetype"),
+    url("./fonts/Alibaba/eot/Alibaba-Black.eot") format("eot");
 }
