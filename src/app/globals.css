@@ -2,8 +2,9 @@
 
 main {
     min-height: 100vh;
-    /*background: url("/background.jpg") no-repeat center;*/
-    background: linear-gradient(to bottom right, #006cfd, #03439a);
+    background: url("/background.jpg") no-repeat center;
+    background-size: cover;
+    /*background: linear-gradient(to bottom right, #006cfd, #03439a);*/
     overflow-x: hidden;
 }
 
