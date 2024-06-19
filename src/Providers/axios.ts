@@ -1,20 +1,21 @@
 import axios from "axios";
-import { getServerSession } from "next-auth";
-import { NextAuthConfig } from "@/auth";
 import { webEnv } from "@/environment/environment";
+import { wrapper } from "axios-cookiejar-support";
+import { CookieJar } from "tough-cookie";
 
-const axiosInstance = axios.create({
-  baseURL: webEnv.api.server,
-  withCredentials: true,
-
-  // headers: {
-  //     'Content-Type': 'application/json'
-  // }
-});
-
+const jar = new CookieJar();
+const axiosInstance = wrapper(
+  axios.create({
+    baseURL: webEnv.api.server,
+    withCredentials: true,
+    // @ts-ignore
+    credentials: "include",
+    jar,
+  }),
+);
 axiosInstance.interceptors.request.use(async (config) => {
   // PROXY
-
+  // config.httpsAgent = agent;
   const isServer = typeof window === "undefined";
   if (isServer) {
     // const session = await getServerSession(NextAuthConfig)
@@ -23,6 +24,8 @@ axiosInstance.interceptors.request.use(async (config) => {
     // }
   } else {
   }
+
+  // console.log(config);
   return config;
 });
 

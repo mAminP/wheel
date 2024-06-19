@@ -14,20 +14,33 @@ import { Close, ContentCopy } from "@mui/icons-material";
 import { useState } from "react";
 // @ts-ignore
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { toggleDialog } from "@/redux/features/user/user.slice";
+import Box from "@mui/material/Box";
+import Image from "next/image";
 
 export default function WinDialog() {
-  const [winnerDialog, setWinnerDialog] = useState<boolean>(false);
+  const { dialog, reward } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
   const [copied, setCopied] = useState(false);
-  const code = "aV2vW";
 
   const handleClose = () => {
-    setWinnerDialog(false);
+    dispatch(toggleDialog(false));
   };
+
+  if (!reward) {
+    return <></>;
+  }
   return (
     <Dialog
       fullWidth={true}
       maxWidth={"xs"}
-      open={winnerDialog}
+      PaperProps={{
+        sx: {
+          borderRadius: 5,
+        },
+      }}
+      open={dialog}
       onClose={handleClose}
     >
       <Grid container={true} spacing={2}>
@@ -49,14 +62,39 @@ export default function WinDialog() {
           alignItems={"center"}
           justifyContent={"center"}
         >
+          <Box
+            sx={{
+              position: "relative",
+              borderRadius: 5,
+              aspectRatio: 1,
+              width: 250,
+            }}
+          >
+            <Image
+              src={"/win.jpg"}
+              alt={"win"}
+              fill={true}
+              style={{ objectFit: "contain" }}
+            />
+          </Box>
+        </Grid>
+        <Grid
+          item={true}
+          xs={12}
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
           <Typography variant={"h3"}>تبریک</Typography>
         </Grid>
         <Grid item={true} xs={12} display={"flex"} sx={{ mx: 3 }}>
-          <Typography variant={"body1"}>شما برنده این شدید....</Typography>
+          <Typography variant={"body1"}>
+            شما برنده {reward.title} شدید
+          </Typography>
         </Grid>
       </Grid>
       <DialogContent>
-        <CopyToClipboard text={code} onCopy={() => setCopied(true)}>
+        <CopyToClipboard text={reward.code} onCopy={() => setCopied(true)}>
           <Card
             sx={{ p: 1, borderRadius: 2000, backgroundColor: "success.200" }}
             elevation={0}
@@ -73,7 +111,7 @@ export default function WinDialog() {
                 variant={"body2"}
                 width={"100%"}
               >
-                {code}
+                {reward.code}
               </Typography>
 
               {copied ? (

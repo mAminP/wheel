@@ -30,43 +30,59 @@ import { $axios } from "@/Providers/axios";
 import { LoadingButton } from "@mui/lab";
 import { getCookies, setCookie, deleteCookie, getCookie } from "cookies-next";
 
+import { useSnackbar } from "notistack";
+import { LoginResult, LoginResultData } from "@/app/types/loginResult";
+
+import { useAppDispatch } from "@/redux/hooks";
+import {login, setReward, toggleDialog} from "@/redux/features/user/user.slice";
+
 type Props = {
   phoneNumber: string;
   onSubmit?: ({ winner }: { winner: number }) => void;
   onBack?: () => void;
 };
 export default function SpinOTPCode(props: Props) {
-  const [ok, setOk] = useState<boolean>(false);
+  const { enqueueSnackbar } = useSnackbar();
   const { seconds, minutes, isRunning, restart } = useTimer({
     expiryTimestamp: new Date(),
     autoStart: false,
     onExpire: () => console.warn("onExpire called"),
   });
-
+  const dispatch = useAppDispatch();
   const { isPending, mutateAsync } = useMutation({
     mutationKey: ["checkOtpCode"],
-    mutationFn: ({
+    mutationFn: async ({
       mobileNumber,
       otpCode,
     }: {
       mobileNumber: string;
       otpCode: number;
     }) => {
-      return $axios.post("/api/login/otp_login", {
+      return await $axios.post<LoginResult>("/api/login/otp_login", {
         mobileNumber: mobileNumber,
         otpCode,
       });
     },
-    onError(e) {
-      console.log(e);
+    onError(e: any) {
+      enqueueSnackbar({
+        message: e.response.data.message || "خطایی رخ داد",
+        variant: "error",
+      });
     },
-    onSuccess({ data }, values) {
+    async onSuccess({ data }, values) {
       const token = data.data.token;
-      setCookie("Authorization", token);
-      // props.onSubmit && props.onSubmit(values.mobileNumber);
-      //   const newPrizeNumber = Math.floor(Math.random() * 10);
-      //   props.onSubmit && props.onSubmit({ winner: newPrizeNumber });
-      //   setOk(true);
+      setCookie("Authorization", token, { secure: true, sameSite: "none" });
+
+      const me = await $axios.get<LoginResult>("/api/user/me", {
+        headers: {
+          Authorization: token,
+        },
+      });
+      dispatch(login({ user: me.data.data.user, token: token }));
+      if (me.data.data.lastReward) {
+        dispatch(setReward({ reward: me.data.data.lastReward }));
+        dispatch(toggleDialog(true))
+      }
     },
   });
 
@@ -99,48 +115,6 @@ export default function SpinOTPCode(props: Props) {
   const handleBack = () => {
     props.onBack && props.onBack();
   };
-  let message = (
-    <Card
-      elevation={0}
-      sx={{
-        backgroundColor: "success.100",
-        borderRadius: 1000,
-        display: "flex",
-        alignItems: "center",
-        gap: 1,
-        p: 0.5,
-        px: 1,
-        width: "max-content",
-      }}
-    >
-      <CheckCircle color={"success"} />
-      <Typography color={"success.main"} variant={"body2"}>
-        پیامک ارسال شد.
-      </Typography>
-    </Card>
-  );
-  if (ok) {
-    message = (
-      <Card
-        elevation={0}
-        sx={{
-          backgroundColor: "success.100",
-          borderRadius: 1000,
-          display: "flex",
-          alignItems: "center",
-          gap: 1,
-          p: 0.5,
-          px: 1,
-          width: "max-content",
-        }}
-      >
-        <CheckCircle color={"success"} />
-        <Typography color={"success.main"} variant={"body2"}>
-          با موفقیت انجام شد.
-        </Typography>
-      </Card>
-    );
-  }
 
   return (
     <Box>
@@ -236,7 +210,6 @@ export default function SpinOTPCode(props: Props) {
           );
         }}
       </Formik>
-      {message}
     </Box>
   );
 }

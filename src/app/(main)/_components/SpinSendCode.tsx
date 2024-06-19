@@ -20,28 +20,33 @@ import Box from "@mui/material/Box";
 import { useMutation } from "@tanstack/react-query";
 import { $axios } from "@/Providers/axios";
 import { LoadingButton } from "@mui/lab";
+import { useSnackbar } from "notistack";
 
 type Props = {
   phoneNumber?: string | null;
   onSubmit?: (phoneNumber: string) => void;
 };
 export default function SpinSendCode(props: Props) {
+  const { enqueueSnackbar } = useSnackbar();
   const theme = useTheme();
+  const smAndUp = useMediaQuery(theme.breakpoints.up("sm"));
+  const mdAndUp = useMediaQuery(theme.breakpoints.up("md"));
   const { isPending, mutateAsync } = useMutation({
     mutationKey: ["sendOtpCode"],
     mutationFn: ({ mobileNumber }: { mobileNumber: string }) => {
       return $axios.post("/api/login/otp", { mobileNumber: mobileNumber });
     },
-    onError(e) {
-      console.log(e);
+    onError(e: any) {
+      enqueueSnackbar({ message: e.response.data.message, variant: "error" });
     },
-    onSuccess(data, values) {
+    onSuccess({ data }, values) {
+      enqueueSnackbar({ message: data.message, variant: "success" });
+
       props.onSubmit && props.onSubmit(values.mobileNumber);
     },
   });
 
-  const smAndUp = useMediaQuery(theme.breakpoints.up("sm"));
-  const mdAndUp = useMediaQuery(theme.breakpoints.up("md"));
+
   const initData = {
     phoneNumber: props.phoneNumber || "",
   };

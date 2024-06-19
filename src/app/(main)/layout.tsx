@@ -1,21 +1,26 @@
-import {Container} from "@mui/material";
+import { Container } from "@mui/material";
 import {
-    dehydrate,
-    HydrationBoundary, QueryClient,
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
 } from "@tanstack/react-query";
-import {PropsWithChildren} from "react";
+import { PropsWithChildren } from "react";
+import SiteAppBar from "@/app/(main)/_components/SiteAppBar";
 
-export default async function RootLayout({children}: PropsWithChildren) {
-    const queryClient = new QueryClient();
+export default async function RootLayout({ children }: PropsWithChildren) {
+  const queryClient = new QueryClient();
 
-    const content = (
-        <main>
-            <Container maxWidth={'xl'}>{children}</Container>
-        </main>
-    );
-    return (
-        <HydrationBoundary state={dehydrate(queryClient)}>
-            {content}
-        </HydrationBoundary>
-    );
+  const content = (
+    <>
+      <SiteAppBar />
+      <main>
+        <Container maxWidth={"xl"}>{children}</Container>
+      </main>
+    </>
+  );
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      {content}
+    </HydrationBoundary>
+  );
 }

@@ -10,39 +10,33 @@ import {
 import Well from "@/app/(main)/_components/Well";
 import { useMemo, useState } from "react";
 import Box from "@mui/material/Box";
-import SpinAction from "@/app/(main)/_components/SpinAction";
 import Image from "next/image";
 
 // @ts-ignore
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import SpinAction from "@/app/(main)/_components/SpinAction";
+import LoginAction from "@/app/(main)/_components/LoginAction";
+import { toggleDialog, toggleSpin } from "@/redux/features/user/user.slice";
+import WinDialog from "@/app/(main)/_components/WinDialog";
 
 export default function HomePage() {
+  const { user, reward, spin } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
   const theme = useTheme();
   const lgAndUp = useMediaQuery(theme.breakpoints.up("lg"));
-  const [mustSpin, setMustSpin] = useState(false);
-  const [prizeNumber, setPrizeNumber] = useState(0);
-  const handleSpinClick = ({ winner }: { winner: number }) => {
-    if (!mustSpin) {
-      setPrizeNumber(winner);
-      setMustSpin(true);
-    }
-  };
+
   const handleSpinStop = () => {
     setTimeout(() => {
-      setMustSpin(false);
+      dispatch(toggleSpin(false));
+      dispatch(toggleDialog(true));
     }, 500);
   };
-  const action = useMemo(() => {
-    return (
-      <SpinAction
-        onSubmit={({ winner }) => {
-          handleSpinClick({ winner });
-        }}
-      />
-    );
-  }, []);
+  const action = user ? <SpinAction /> : <LoginAction />;
+
   return (
     <>
+      {reward && <WinDialog />}
       <Grid
         container={true}
         spacing={{ xs: 6, sm: 7, md: 10 }}
@@ -134,8 +128,8 @@ export default function HomePage() {
               }}
             >
               <Well
-                mustSpin={mustSpin}
-                prizeNumber={prizeNumber}
+                mustSpin={spin}
+                prizeNumber={reward?.value || 0}
                 onStop={handleSpinStop}
               />
             </Box>
