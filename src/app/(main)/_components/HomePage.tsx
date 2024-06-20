@@ -19,6 +19,7 @@ import SpinAction from "@/app/(main)/_components/SpinAction";
 import LoginAction from "@/app/(main)/_components/LoginAction";
 import { toggleDialog, toggleSpin } from "@/redux/features/user/user.slice";
 import WinDialog from "@/app/(main)/_components/WinDialog";
+import Referral from "@/app/(main)/_components/Referral/Referral";
 
 export default function HomePage() {
   const { user, reward, spin } = useAppSelector((state) => state.user);
@@ -32,7 +33,16 @@ export default function HomePage() {
       dispatch(toggleDialog(true));
     }, 500);
   };
-  const action = user ? <SpinAction /> : <LoginAction />;
+  const action = user ? (
+    <Box
+      sx={{ display: "flex", alignItems: "center", flexDirection: "column",gap:2 }}
+    >
+      <SpinAction />
+      <Referral />
+    </Box>
+  ) : (
+    <LoginAction />
+  );
 
   return (
     <>

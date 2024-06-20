@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Close, ContentCopy } from "@mui/icons-material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // @ts-ignore
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
@@ -24,6 +24,11 @@ export default function WinDialog() {
   const dispatch = useAppDispatch();
   const [copied, setCopied] = useState(false);
 
+  useEffect(() => {
+    if (dialog) {
+      setCopied(false);
+    }
+  }, [dialog]);
   const handleClose = () => {
     dispatch(toggleDialog(false));
   };

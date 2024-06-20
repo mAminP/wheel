@@ -6,7 +6,7 @@ export default function MUISnackbar({ children }: PropsWithChildren) {
   return (
     <SnackbarProvider
       dense={true}
-      autoHideDuration={1000}
+      autoHideDuration={3000}
       anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
     >
       {children}
