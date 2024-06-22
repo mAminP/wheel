@@ -30,7 +30,7 @@ export default function StoreProvider({
       storeRef.current.dispatch(login({ user, token }));
       if (reward) {
         storeRef.current.dispatch(setReward({ reward: reward }));
-        storeRef.current.dispatch(toggleDialog(true));
+        // storeRef.current.dispatch(toggleDialog(true));
       }
     }
   }

@@ -20,8 +20,11 @@ import LoginAction from "@/app/(main)/_components/LoginAction";
 import { toggleDialog, toggleSpin } from "@/redux/features/user/user.slice";
 import WinDialog from "@/app/(main)/_components/WinDialog";
 import Referral from "@/app/(main)/_components/Referral/Referral";
+import { useParams } from "next/navigation";
+import AllRewardsDialog from "@/app/(main)/_components/AllRewardsDialog";
 
 export default function HomePage() {
+  const params = useParams();
   const { user, reward, spin } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
   const theme = useTheme();
@@ -35,7 +38,12 @@ export default function HomePage() {
   };
   const action = user ? (
     <Box
-      sx={{ display: "flex", alignItems: "center", flexDirection: "column",gap:2 }}
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+        gap: 2,
+      }}
     >
       <SpinAction />
       <Referral />
@@ -46,6 +54,7 @@ export default function HomePage() {
 
   return (
     <>
+      <AllRewardsDialog />
       <WinDialog />
       <Grid
         container={true}
@@ -81,13 +90,15 @@ export default function HomePage() {
                 style={{ objectFit: "contain" }}
               />
             </Box>
-            <Typography
-              color={"white"}
-              variant={"h2"}
-              sx={{ pt: { xs: 2, md: 4, lg: 12 } }}
-            >
-              گردونه رو بچرخون و شانست رو امتحان کن !
-            </Typography>
+            {lgAndUp && (
+              <Typography
+                color={"white"}
+                variant={"h2"}
+                sx={{ pt: { xs: 2, md: 4, lg: 12 } }}
+              >
+                گردونه رو بچرخون و شانست رو امتحان کن !
+              </Typography>
+            )}
             <Typography
               color={"white"}
               variant={"h5"}

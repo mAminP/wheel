@@ -34,7 +34,12 @@ import { useSnackbar } from "notistack";
 import { LoginResult, LoginResultData } from "@/app/types/loginResult";
 
 import { useAppDispatch } from "@/redux/hooks";
-import {login, setReward, toggleDialog} from "@/redux/features/user/user.slice";
+import {
+  login,
+  setReward,
+  toggleDialog,
+} from "@/redux/features/user/user.slice";
+import { useParams } from "next/navigation";
 
 type Props = {
   phoneNumber: string;
@@ -42,6 +47,8 @@ type Props = {
   onBack?: () => void;
 };
 export default function SpinOTPCode(props: Props) {
+  const params = useParams();
+  const inviteCode = params.slug;
   const { enqueueSnackbar } = useSnackbar();
   const { seconds, minutes, isRunning, restart } = useTimer({
     expiryTimestamp: new Date(),
@@ -61,6 +68,7 @@ export default function SpinOTPCode(props: Props) {
       return await $axios.post<LoginResult>("/api/login/otp_login", {
         mobileNumber: mobileNumber,
         otpCode,
+        ...(inviteCode && { inviteCode: inviteCode }),
       });
     },
     onError(e: any) {
@@ -81,7 +89,7 @@ export default function SpinOTPCode(props: Props) {
       dispatch(login({ user: me.data.data.user, token: token }));
       if (me.data.data.lastReward) {
         dispatch(setReward({ reward: me.data.data.lastReward }));
-        dispatch(toggleDialog(true))
+        // dispatch(toggleDialog(true))
       }
     },
   });

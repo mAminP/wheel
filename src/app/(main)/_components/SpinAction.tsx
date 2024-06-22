@@ -15,10 +15,10 @@ import { useSnackbar } from "notistack";
 import { useMutation } from "@tanstack/react-query";
 import { $axios } from "@/Providers/axios";
 import {
-  setReward,
-  toggleDialog,
-  toggleSpin,
-  updateUser,
+    setReward, toggleAllRewardsDialog,
+    toggleDialog,
+    toggleSpin,
+    updateUser,
 } from "@/redux/features/user/user.slice";
 
 export default function SpinAction() {
@@ -93,10 +93,10 @@ export default function SpinAction() {
             disabled={dialog}
             sx={{ borderRadius: 100, whiteSpace: "nowrap", px: 3 }}
             onClick={() => {
-              dispatch(toggleDialog(true));
+              dispatch(toggleAllRewardsDialog(true));
             }}
           >
-            جایزه
+            جوایز
           </Button>
         )}
       </Paper>

@@ -18,6 +18,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { toggleDialog } from "@/redux/features/user/user.slice";
 import Box from "@mui/material/Box";
 import Image from "next/image";
+import NextLink from "next/link";
 
 export default function WinDialog() {
   const { dialog, reward } = useAppSelector((state) => state.user);
@@ -140,6 +141,28 @@ export default function WinDialog() {
             </Stack>
           </Card>
         </CopyToClipboard>
+        <Box
+          sx={{
+            mt:2,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Button
+            component={NextLink}
+            variant={'contained'}
+            target={'_blank'}
+            href={
+              "https://doctornadia.ir/product/1/بسته-کامل-بلیچینگ-خانگی-دنتیلایت/"
+            }
+            sx={{
+              borderRadius: 2000,
+            }}
+          >
+            ثبت سفارش
+          </Button>
+        </Box>
       </DialogContent>
     </Dialog>
   );

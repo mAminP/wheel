@@ -26,7 +26,7 @@ function Well({ mustSpin, prizeNumber, onStop }: Props) {
       image: {
         uri: "/colgate_toothpaste_1.png",
         landscape: true,
-        sizeMultiplier,
+        sizeMultiplier:sizeMultiplier*1.7,
         offsetX,
       },
       style: { backgroundColor: "#41a7ff", textColor: "black" },
@@ -66,7 +66,7 @@ function Well({ mustSpin, prizeNumber, onStop }: Props) {
       image: {
         uri: "/teeth_whitening_strip_5.png",
         landscape: true,
-        sizeMultiplier: sizeMultiplier * 1.2,
+        sizeMultiplier: sizeMultiplier * 1.5,
         offsetX,
       },
       style: { backgroundColor: "#41a7ff", textColor: "black" },
@@ -86,7 +86,7 @@ function Well({ mustSpin, prizeNumber, onStop }: Props) {
       image: {
         uri: "/electric_toothbrush_7.png",
         landscape: true,
-        sizeMultiplier: sizeMultiplier * 1.5,
+        sizeMultiplier: sizeMultiplier * 1.7,
         offsetX,
       },
       style: { backgroundColor: "#41a7ff", textColor: "black" },

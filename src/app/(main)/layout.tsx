@@ -7,6 +7,7 @@ import {
 import { PropsWithChildren } from "react";
 import SiteAppBar from "@/app/(main)/_components/SiteAppBar";
 
+export const dynamic = 'force-dynamic'
 export default async function RootLayout({ children }: PropsWithChildren) {
   const queryClient = new QueryClient();
 

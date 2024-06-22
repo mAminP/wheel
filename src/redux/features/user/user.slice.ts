@@ -8,6 +8,7 @@ type InitType = {
   reward: RewardType | null;
   spin: boolean;
   dialog: boolean;
+  allRewardsDialog: boolean
 };
 
 const initialState: InitType = {
@@ -16,6 +17,7 @@ const initialState: InitType = {
   reward: null,
   spin: false,
   dialog: false,
+  allRewardsDialog:false
 };
 export const userSlice = createSlice({
   name: "user",
@@ -47,6 +49,9 @@ export const userSlice = createSlice({
     toggleDialog: (state, action: PayloadAction<boolean>) => {
       state.dialog = action.payload;
     },
+    toggleAllRewardsDialog:(state, action: PayloadAction<boolean>) =>{
+      state.allRewardsDialog = action.payload;
+    }
   },
 });
 
@@ -58,6 +63,7 @@ export const {
   setReward,
   toggleDialog,
   toggleSpin,
+    toggleAllRewardsDialog
 } = userSlice.actions;
 
 export default userSlice.reducer;

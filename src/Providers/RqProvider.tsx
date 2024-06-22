@@ -9,7 +9,7 @@ export default function RqProvider(props: PropsWithChildren) {
       defaultOptions: {
         queries: {
           refetchOnWindowFocus: false,
-          staleTime: 60 * 1000,
+          staleTime: 5 * 1000, // 5sec
         },
       },
     }),
