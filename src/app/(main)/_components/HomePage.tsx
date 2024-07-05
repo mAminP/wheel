@@ -73,9 +73,9 @@ export default function HomePage() {
             }}
             textAlign={{ xs: "center", md: "left" }}
           >
-            <Typography variant={"h1"} color={"white"}>
-              جشنواره تابستانه
-            </Typography>
+            {/*<Typography variant={"h1"} color={"white"}>*/}
+            {/*  جشنواره تابستانه*/}
+            {/*</Typography>*/}
             <Box
               sx={{
                 position: "relative",
