@@ -73,9 +73,23 @@ export default function HomePage() {
             }}
             textAlign={{ xs: "center", md: "left" }}
           >
-            {/*<Typography variant={"h1"} color={"white"}>*/}
-            {/*  جشنواره تابستانه*/}
-            {/*</Typography>*/}
+            {/* <Typography variant={"h1"} color={"white"}>
+            جشنواره تابستانه
+           </Typography> */}
+            <Box
+              sx={{
+                position: "relative",
+                width: "224px",
+                height: "200px",
+              }}
+            >
+              <Image
+                src={"/Logo_spring.png"}
+                alt={"dentilite"}
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            </Box>
             <Box
               sx={{
                 position: "relative",
