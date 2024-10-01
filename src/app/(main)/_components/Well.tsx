@@ -19,7 +19,7 @@ function Well({ mustSpin, prizeNumber, onStop }: Props) {
     {
       option: "0",
       image: { uri: "/kit_50_0.png", landscape: true, sizeMultiplier, offsetX },
-      style: { backgroundColor: "#0089ff", textColor: "black" },
+      style: { backgroundColor: "#FF7E0E", textColor: "black" },
     },
     {
       option: "1",
@@ -29,7 +29,7 @@ function Well({ mustSpin, prizeNumber, onStop }: Props) {
         sizeMultiplier:sizeMultiplier*1.7,
         offsetX,
       },
-      style: { backgroundColor: "#41a7ff", textColor: "black" },
+      style: { backgroundColor: "#FFA04D", textColor: "black" },
     },
     {
       option: "2",
@@ -39,7 +39,7 @@ function Well({ mustSpin, prizeNumber, onStop }: Props) {
         sizeMultiplier,
         offsetX,
       },
-      style: { backgroundColor: "#0089ff", textColor: "black" },
+      style: { backgroundColor: "#FF7E0E", textColor: "black" },
     },
     {
       option: "3", // text
@@ -49,7 +49,7 @@ function Well({ mustSpin, prizeNumber, onStop }: Props) {
         sizeMultiplier,
         offsetX,
       },
-      style: { backgroundColor: "#41a7ff", textColor: "black" },
+      style: { backgroundColor: "#FFA04D", textColor: "black" },
     },
     {
       option: "4",
@@ -59,7 +59,7 @@ function Well({ mustSpin, prizeNumber, onStop }: Props) {
         sizeMultiplier,
         offsetX,
       },
-      style: { backgroundColor: "#0089ff", textColor: "black" },
+      style: { backgroundColor: "#FF7E0E", textColor: "black" },
     },
     {
       option: "5",
@@ -69,7 +69,7 @@ function Well({ mustSpin, prizeNumber, onStop }: Props) {
         sizeMultiplier: sizeMultiplier * 1.5,
         offsetX,
       },
-      style: { backgroundColor: "#41a7ff", textColor: "black" },
+      style: { backgroundColor: "#FFA04D", textColor: "black" },
     },
     {
       option: "6",
@@ -79,7 +79,7 @@ function Well({ mustSpin, prizeNumber, onStop }: Props) {
         sizeMultiplier,
         offsetX,
       },
-      style: { backgroundColor: "#0089ff", textColor: "black" },
+      style: { backgroundColor: "#FF7E0E", textColor: "black" },
     },
     {
       option: "7",
@@ -89,7 +89,7 @@ function Well({ mustSpin, prizeNumber, onStop }: Props) {
         sizeMultiplier: sizeMultiplier * 1.7,
         offsetX,
       },
-      style: { backgroundColor: "#41a7ff", textColor: "black" },
+      style: { backgroundColor: "#FFA04D", textColor: "black" },
     },
     {
       option: "8",
@@ -99,7 +99,7 @@ function Well({ mustSpin, prizeNumber, onStop }: Props) {
         sizeMultiplier,
         offsetX,
       },
-      style: { backgroundColor: "#0089ff", textColor: "black" },
+      style: { backgroundColor: "#FF7E0E", textColor: "black" },
     },
     {
       option: "9", //text
@@ -109,7 +109,7 @@ function Well({ mustSpin, prizeNumber, onStop }: Props) {
         sizeMultiplier,
         offsetX,
       },
-      style: { backgroundColor: "#41a7ff", textColor: "black" },
+      style: { backgroundColor: "#FFA04D", textColor: "black" },
     },
   ];
 

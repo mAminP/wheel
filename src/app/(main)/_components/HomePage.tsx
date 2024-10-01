@@ -29,6 +29,7 @@ export default function HomePage() {
   const dispatch = useAppDispatch();
   const theme = useTheme();
   const lgAndUp = useMediaQuery(theme.breakpoints.up("lg"));
+  const smAndUp = useMediaQuery(theme.breakpoints.up("sm"));
 
   const handleSpinStop = () => {
     setTimeout(() => {
@@ -69,7 +70,7 @@ export default function HomePage() {
             spacing={{ xs: 1, sm: 2, md: 0 }}
             sx={{
               display: { md: "flex" },
-              alignItems: { xs: "center", md: "start" },
+              alignItems: { xs: "center", md: "center" },
             }}
             textAlign={{ xs: "center", md: "left" }}
           >
@@ -81,6 +82,10 @@ export default function HomePage() {
                 position: "relative",
                 width: "224px",
                 height: "200px",
+                pl: {
+                  xs: 0,
+                  md: 6,
+                },
               }}
             >
               <Image
@@ -95,6 +100,10 @@ export default function HomePage() {
                 position: "relative",
                 width: "224px",
                 height: "84px",
+                display: {
+                  xs: "none",
+                  md: "block",
+                },
               }}
             >
               <Image
