@@ -80,8 +80,8 @@ export default function HomePage() {
             <Box
               sx={{
                 position: "relative",
-                width: "224px",
-                height: "200px",
+                width: "244px",
+                height: "220px",
                 pl: {
                   xs: 0,
                   md: 6,
