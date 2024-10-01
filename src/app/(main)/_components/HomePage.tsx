@@ -63,7 +63,13 @@ export default function HomePage() {
         alignItems={{
           lg: "center",
         }}
-        sx={{ minHeight: "100vh", py: 5 }}
+        sx={{
+          minHeight: "100vh",
+          py: {
+            xs: 1,
+            md: 5,
+          },
+        }}
       >
         <Grid item xs={12} sm={12} md={12} lg={6}>
           <Stack
@@ -80,8 +86,11 @@ export default function HomePage() {
             <Box
               sx={{
                 position: "relative",
-                width: "244px",
-                height: "220px",
+                width: {
+                  xs: "214px",
+                  md: "244px",
+                },
+                height: "164px",
                 pl: {
                   xs: 0,
                   md: 6,
