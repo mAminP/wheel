@@ -154,7 +154,7 @@ export default function WinDialog() {
             variant={'contained'}
             target={'_blank'}
             href={
-              "https://mesvakala.com/product/dental-whitening-kit/"
+              "https://doctornadia.ir/product/1/بسته-کامل-بلیچینگ-خانگی-دنتیلایت/"
             }
             sx={{
               borderRadius: 2000,
