@@ -80,7 +80,7 @@ export default function HomePage() {
               sx={{
                 position: "relative",
                 width: "224px",
-                height: "145px",
+                height: "84px",
               }}
             >
               <Image
